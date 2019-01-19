@@ -20,19 +20,18 @@ arr = 0
 for i in range(10):
     data = int(r.recvline().split()[2])
     print data
-    for i in range(10):
-        v4 = 0
-        v5 = 0
-        v6 = data
-        while v6 > 1:
-            if(v6 % v2[v4] == 0):
-                v6 /= v2[v4]
-                v5 += v2[v4]
-                v4 = -1
-            v1 = v4 + 1
-            v4 = (v4 + 1) / 47
-            v4 = v1 - 47 * v4
-        arr = v5
+    v4 = 0
+    v5 = 0
+    v6 = data
+    while v6 > 1:
+        if(v6 % v2[v4] == 0):
+            v6 /= v2[v4]
+            v5 += v2[v4]
+            v4 = -1
+        v1 = v4 + 1
+        v4 = (v4 + 1) / 47
+        v4 = v1 - 47 * v4
+    arr = v5
 
     r.sendline(str(arr))
     r.recv()
